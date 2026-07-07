@@ -17,7 +17,7 @@ A session-by-session record of how this portfolio was built.
 
 **Status:** placeholder page only — full hero content, bio, and 5 project sections are Milestones 2-3.
 
-**Deployed:** GitHub repo created (`albatrossflyon-coder/chrisbrown-dev`, public), pushed to `master`. Vercel import still pending (manual dashboard step — MCP connector has no create-project tool, and CLI login is non-interactive-blocked, so Chris does this one click himself).
+**Deployed:** GitHub repo created (`albatrossflyon-coder/chrisbrown-dev`, public), pushed to `master`. Vercel import completed by Chris via dashboard (vercel.com/new) — live at `chrisbrown-dev.vercel.app`, Status: Ready on commit `80fcb17`. Note: landed in Chris's personal Hobby-plan Vercel scope, not the `albatrossflyon1-3105's projects` team the MCP connector is authenticated against — so future deploys can't be auto-verified via `get_deployment_build_logs`/`get_runtime_errors` unless the connector is re-scoped or the project moved into that team.
 
 ---
 
