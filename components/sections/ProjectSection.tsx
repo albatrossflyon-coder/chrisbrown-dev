@@ -50,7 +50,7 @@ export default function ProjectSection({ project }: { project: Project }) {
         ))}
       </div>
       <div className="h-64 w-full flex-1 sm:h-80">
-        {inView && <PlaceholderScene color={project.accentColor} />}
+        {inView && <PlaceholderScene />}
       </div>
     </section>
   );

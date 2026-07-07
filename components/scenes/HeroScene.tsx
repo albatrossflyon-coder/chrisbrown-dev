@@ -7,6 +7,8 @@ import * as THREE from "three";
 import { gsap } from "@/lib/gsap";
 
 const EXPLODE_DISTANCE = 1.8;
+const LAUNCH_DISTANCE = 3.5;
+const FACING_THRESHOLD = 0.82;
 
 function buildFaces() {
   const geometry = new THREE.IcosahedronGeometry(1.4, 0);
@@ -36,6 +38,7 @@ function ExplodingIcosahedron() {
   const groupRef = useRef<THREE.Group>(null);
   const meshRefs = useRef<(THREE.Mesh | null)[]>([]);
   const progress = useRef({ t: 0 });
+  const launchProgress = useRef<number[]>(faces.map(() => 0));
 
   useMemo(() => {
     gsap.to(progress.current, {
@@ -49,15 +52,31 @@ function ExplodingIcosahedron() {
   }, []);
 
   useFrame((_, delta) => {
-    if (groupRef.current) {
-      groupRef.current.rotation.x += delta * 0.1;
-      groupRef.current.rotation.y += delta * 0.15;
-    }
+    const group = groupRef.current;
+    if (!group) return;
+
+    group.rotation.x += delta * 0.1;
+    group.rotation.y += delta * 0.15;
+
     faces.forEach((face, i) => {
       const mesh = meshRefs.current[i];
-      if (mesh) {
-        mesh.position.copy(face.direction).multiplyScalar(progress.current.t * EXPLODE_DISTANCE);
-      }
+      if (!mesh) return;
+
+      const worldNormal = face.direction.clone().applyQuaternion(group.quaternion);
+      const facingViewer = worldNormal.z > FACING_THRESHOLD;
+
+      launchProgress.current[i] = THREE.MathUtils.clamp(
+        launchProgress.current[i] + (facingViewer ? delta * 1.4 : -delta * 1.1),
+        0,
+        1
+      );
+
+      const baseOffset = face.direction.clone().multiplyScalar(progress.current.t * EXPLODE_DISTANCE);
+      const launchOffset = face.direction.clone().multiplyScalar(launchProgress.current[i] * LAUNCH_DISTANCE);
+      mesh.position.copy(baseOffset).add(launchOffset);
+
+      const material = mesh.material as THREE.MeshBasicMaterial;
+      material.opacity = 1 - launchProgress.current[i];
     });
   });
 
@@ -72,7 +91,7 @@ function ExplodingIcosahedron() {
             }}
             geometry={face.geometry}
           >
-            <meshBasicMaterial color="#3fa796" wireframe />
+            <meshBasicMaterial color="#3fa796" wireframe transparent />
           </mesh>
         ))}
       </group>

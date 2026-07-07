@@ -65,3 +65,19 @@ A session-by-session record of how this portfolio was built.
 **Deferred (intentionally):** Skinstric's bespoke scene (textured screenshot + confidence-ring tori) needs a real screenshot exported from `skinstric-albatrossflyon-coder` first — not captured yet, so Skinstric currently uses the same placeholder cube as sections 2-5. Pick this up in Milestone 4 alongside vuln-hunter's scanline scene.
 
 **Next session:** Milestone 4 — vuln-hunter's scanline/shield scene (and grab the Skinstric screenshot while there).
+
+---
+
+## Session 1 (cont.) — 2026-07-06 (Hero centering fix + explode-on-facing cube effect)
+
+**Fixed:** `components/sections/Hero.tsx` — the hero section relied on `flex-1` alone to fill viewport height, which collapsed to content height rather than 100vh, pushing the name up against the top of the page instead of vertically centering it. Changed to `min-h-screen` so it always reserves a full viewport regardless of ancestor flex context. Confirmed via screenshot from Chris that the name was rendering flush against the nav area before this fix.
+
+**Added — view-facing explode effect (Hero icosahedron):** extended the existing global explode/implode breathing loop with a per-face check — each frame, each of the 20 faces computes its current world-space normal (`direction.applyQuaternion(group.quaternion)`) and compares its Z component against a threshold (`0.82`) to detect whether it's currently oriented toward the camera. Faces crossing that threshold launch further outward (`LAUNCH_DISTANCE`) and fade toward transparent; faces rotating away retract and fade back in. Confirmed working by Chris ("the top ones fine where my name is").
+
+**Rebuilt — `components/scenes/PlaceholderScene.tsx`:** Chris asked for the same view-facing-explode behavior on the per-project placeholder cubes, while explicitly keeping the color-cycling look. Rebuilt the single `BoxGeometry` mesh as 6 independent `PlaneGeometry` faces (one per cube face, positioned/rotated to reconstruct the cube), each running the identical facing-detection + launch/fade logic as the hero. All 6 faces still share one continuously hue-cycling `MeshStandardMaterial` color (updated once per frame, applied to all), and the original dark wireframe box cage is kept as a separate non-exploding sibling mesh so the "Rubik's cube" edge look is preserved.
+
+**Known follow-up (not yet done):** Chris flagged the spacing/divider lines between the 5 project sections need tightening — waiting on a screenshot to pin down exactly what to change before touching it.
+
+**Verified:** `npm run build` clean. Dev server was restarted (not just hot-reloaded) both times before Chris re-checked, after discovering Fast Refresh was silently serving a stale bundle for R3F-scene changes earlier in the session — full restart + hard browser refresh is now the standard verification step for any change to a `components/scenes/*` file.
+
+**Next session:** Milestone 4 — vuln-hunter's scanline/shield scene (and grab the Skinstric screenshot while there), plus the section-spacing fix once Chris sends the screenshot.
