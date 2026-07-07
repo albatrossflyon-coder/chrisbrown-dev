@@ -9,7 +9,7 @@ import { gsap } from "@/lib/gsap";
 const EXPLODE_DISTANCE = 1.8;
 
 function buildFaces() {
-  const geometry = new THREE.IcosahedronGeometry(1.4, 0).toNonIndexed();
+  const geometry = new THREE.IcosahedronGeometry(1.4, 0);
   const position = geometry.attributes.position;
   const faces: { geometry: THREE.BufferGeometry; direction: THREE.Vector3 }[] = [];
 

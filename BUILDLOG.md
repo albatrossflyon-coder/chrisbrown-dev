@@ -45,4 +45,23 @@ A session-by-session record of how this portfolio was built.
 
 **Verified:** `npm run build` clean; confirmed visually in browser (Chris: "that was a good i[dea]... separated and then came back together").
 
-**Next session:** Milestone 3.
+---
+
+## Session 1 (cont.) — 2026-07-06 (Milestone 3: 5 project sections, real copy)
+
+**Goal:** Real copy for all 5 featured projects, a shared section shell, and the lazy-mount-per-section-canvas mechanism proven working across all of them before investing in bespoke geometry for each.
+
+**Built:**
+- `data/projects.ts`: real copy for all 5 projects (Skinstric, vuln-hunter, AI Infrastructure [RAG + Omni combined], agentic-rust-mcp, job-lead-discovery) — title/tagline/description/standout-fact/tech/status/accentColor, per the plan's real research (no generic filler copy)
+- `hooks/useInViewport.ts`: `IntersectionObserver`-based hook, mounts/unmounts state as a section enters/leaves the viewport (not one-shot — canvases genuinely unmount when scrolled past, keeping WebGL context count low)
+- `components/scenes/PlaceholderScene.tsx`: simple rotating wireframe cube, colored per-project via `accentColor` — stands in for each project's bespoke scene until Milestones 4-7
+- `components/sections/ProjectSection.tsx`: shared shell every project section renders from — alternates text/canvas sides by parity of `project.index`, renders `PlaceholderScene` only when `useInViewport` reports `inView`
+- `app/page.tsx`: now renders Hero → 5x `ProjectSection` → Footer
+
+**Fixed:** a benign console warning (`THREE.BufferGeometry.toNonIndexed(): BufferGeometry is already non-indexed`) from `HeroScene.tsx` — `IcosahedronGeometry` is already non-indexed by construction, so the `.toNonIndexed()` call was redundant; removed it.
+
+**Verified:** `npm run build` clean twice (before and after the toNonIndexed fix); dev server hot-reload clean.
+
+**Deferred (intentionally):** Skinstric's bespoke scene (textured screenshot + confidence-ring tori) needs a real screenshot exported from `skinstric-albatrossflyon-coder` first — not captured yet, so Skinstric currently uses the same placeholder cube as sections 2-5. Pick this up in Milestone 4 alongside vuln-hunter's scanline scene.
+
+**Next session:** Milestone 4 — vuln-hunter's scanline/shield scene (and grab the Skinstric screenshot while there).
