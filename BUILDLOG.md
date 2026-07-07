@@ -17,4 +17,24 @@ A session-by-session record of how this portfolio was built.
 
 **Status:** placeholder page only — full hero content, bio, and 5 project sections are Milestones 2-3.
 
-**Next session:** Milestone 2 — real hero copy/bio/contact links, `Footer.tsx`.
+**Deployed:** GitHub repo created (`albatrossflyon-coder/chrisbrown-dev`, public), pushed to `master`. Vercel import still pending (manual dashboard step — MCP connector has no create-project tool, and CLI login is non-interactive-blocked, so Chris does this one click himself).
+
+---
+
+## Session 1 (cont.) — 2026-07-06 (Milestone 2: Hero complete)
+
+**Goal:** Real hero content and footer before building out the 5 project sections.
+
+**Built:**
+- `data/bio.ts`: name, headline, real trimmed bio paragraph (sourced from `job-hunter/resumes/resume-claude-code-specialist.md`, reordered to lead with Claude Code framing), GitHub + email links
+- `lib/gsap.ts`: registers ScrollTrigger plugin, client-guarded — foundation for later scroll-driven scenes, not used yet
+- `components/scenes/HeroScene.tsx`: first real R3F scene — a slowly rotating wireframe icosahedron (`Float` + manual `useFrame` rotation), teal (`#3fa796`), ambient-only motion
+- `components/sections/Hero.tsx`: real headline/bio/links, `HeroScene` lazy-loaded via `next/dynamic` with `ssr: false` (R3F/WebGL can't run server-side)
+- `components/sections/Footer.tsx`: name/headline + GitHub/email links
+- `app/page.tsx`: now renders `Hero` + `Footer`
+
+**Verified:** `npm run build` (prod build, confirms the `ssr:false` dynamic import pattern works correctly for R3F), then `npm run dev` hot-reload — both clean, no console errors.
+
+**Status:** hero is genuinely complete. Next up: Milestone 3 — `data/projects.ts` with all 5 sections' real copy, `ProjectSection.tsx` shell, `useInViewport.ts`, and Skinstric's real scene.
+
+**Next session:** Milestone 3.
