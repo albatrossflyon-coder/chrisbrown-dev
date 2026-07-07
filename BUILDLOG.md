@@ -37,4 +37,12 @@ A session-by-session record of how this portfolio was built.
 
 **Status:** hero is genuinely complete. Next up: Milestone 3 — `data/projects.ts` with all 5 sections' real copy, `ProjectSection.tsx` shell, `useInViewport.ts`, and Skinstric's real scene.
 
+---
+
+## Session 1 (cont.) — 2026-07-06 (Hero scene: explode/reassemble effect)
+
+**Changed:** `components/scenes/HeroScene.tsx` — replaced the single solid wireframe icosahedron with 20 independent triangular face meshes (via `IcosahedronGeometry(...).toNonIndexed()`, one `BufferGeometry` per face). Each face's outward direction is its own centroid-normalized vector from origin. A GSAP tween drives a shared `progress.t` value (0 → 1 → 0, `yoyo: true, repeat: -1`) that `useFrame` reads every frame to offset each face's position along its own direction — so the whole shape continuously blows apart into its 20 pieces and reassembles, on top of the existing slow rotation/float.
+
+**Verified:** `npm run build` clean; confirmed visually in browser (Chris: "that was a good i[dea]... separated and then came back together").
+
 **Next session:** Milestone 3.
