@@ -81,3 +81,7 @@ A session-by-session record of how this portfolio was built.
 **Verified:** `npm run build` clean. Dev server was restarted (not just hot-reloaded) both times before Chris re-checked, after discovering Fast Refresh was silently serving a stale bundle for R3F-scene changes earlier in the session — full restart + hard browser refresh is now the standard verification step for any change to a `components/scenes/*` file.
 
 **Next session:** Milestone 4 — vuln-hunter's scanline/shield scene (and grab the Skinstric screenshot while there), plus the section-spacing fix once Chris sends the screenshot.
+
+**Ideas to revisit (flagged 2026-07-06, end of session — just thoughts, not committed to):**
+- Re-review the wording/copy on the 5 project sections in `data/projects.ts` — Chris wants to reconsider some of it but wasn't sure which section(s) specifically; revisit with him at the start of next session.
+- Consider wrapping each project section's content in a card/flexbox container (a contained "modern" box around the text+scene) instead of the current full-bleed layout — untested idea, see how it looks before committing either way.
