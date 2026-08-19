@@ -1,8 +1,8 @@
 export const bio = {
   name: "Chris Brown",
-  headline: "Claude Code Specialist & Frontend Engineer",
+  headline: "Junior Frontend Developer",
   summary:
-    "Claude Code specialist and frontend engineer with deep hands-on expertise in the full Anthropic ecosystem — Claude API, MCP protocol, and production Claude Code deployments. Founder of Albatross AI, where I've shipped pixel-accurate frontend builds, production MCP servers in Rust, and a Claude Code operating stack achieving 50-75% token reduction in daily use. I don't just use Claude Code — I build the infrastructure and interfaces around it.",
+    "Building production-grade web apps with React, Next.js, and TypeScript — from pixel-accurate UI to animated 3D interfaces and full REST API integration. Comfortable owning a feature end to end, and brings hands-on AI and automation engineering depth as a useful edge for teams building AI-integrated products.",
   links: {
     github: "https://github.com/albatrossflyon-coder",
     email: "mailto:albatrossflyon1@gmail.com",

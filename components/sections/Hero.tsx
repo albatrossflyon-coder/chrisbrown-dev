@@ -20,17 +20,20 @@ export default function Hero() {
         {bio.headline}
       </p>
       <p className="mt-6 max-w-xl text-(--color-muted)">{bio.summary}</p>
-      <div className="mt-8 flex gap-6 font-mono text-sm">
+      <div className="mt-8 flex gap-4 font-mono text-sm">
+        <a
+          href="#projects"
+          className="rounded border border-(--color-signal) px-5 py-2.5 text-(--color-signal) hover:bg-(--color-signal) hover:text-(--color-ink)"
+        >
+          View Projects
+        </a>
         <a
           href={bio.links.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-(--color-signal) hover:underline"
+          className="rounded border border-(--color-muted) px-5 py-2.5 text-(--color-paper) hover:border-(--color-signal) hover:text-(--color-signal)"
         >
           GitHub
-        </a>
-        <a href={bio.links.email} className="text-(--color-signal) hover:underline">
-          Email
         </a>
       </div>
     </section>

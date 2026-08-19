@@ -7,9 +7,11 @@ export default function Home() {
   return (
     <>
       <Hero />
-      {projects.map((project) => (
-        <ProjectSection key={project.id} project={project} />
-      ))}
+      <div id="projects">
+        {projects.map((project) => (
+          <ProjectSection key={project.id} project={project} />
+        ))}
+      </div>
       <Footer />
     </>
   );

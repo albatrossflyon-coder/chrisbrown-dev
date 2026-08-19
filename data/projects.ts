@@ -29,6 +29,7 @@ export const projects: Project[] = [
     tech: ["Next.js 16", "React 19", "TypeScript", "Tailwind 4", "GSAP"],
     status: "Working, in progress — mobile pass pending",
     accentColor: "#3fa796",
+    links: [{ label: "Live Demo", href: "https://skinstric-albatrossflyon-coder.vercel.app" }],
   },
   {
     id: "vuln-hunter",
@@ -40,8 +41,9 @@ export const projects: Project[] = [
     standout:
       "Custom rules went from 1/4 to 4/4 detections on a planted-vulnerability fixture vs. community rule packs, zero false positives on the safe counterpart. A second 'AI reasoning' pass catches business-logic bugs invisible to rule-based scanning — run against its own code, it caught a real bug: the FastAPI server was bound to 0.0.0.0 instead of localhost.",
     tech: ["Python", "FastAPI", "Semgrep", "Next.js 16", "FastMCP"],
-    status: "Verified end-to-end locally via real HTTP calls and MCP round-trips; not yet deployed",
+    status: "Live on Vercel + Render",
     accentColor: "#e1573a",
+    links: [{ label: "Live Demo", href: "https://frontend-beta-eight-46.vercel.app" }],
   },
   {
     id: "ai-infrastructure",
@@ -67,20 +69,22 @@ export const projects: Project[] = [
     standout:
       "An earlier version faked its tool responses with hardcoded data over a non-standard protocol. The current version is a genuine rebuild: real JSON-RPC 2.0, live API integration, a security-hardening pass moving API tokens to headers, and passing unit tests.",
     tech: ["Rust", "Tokio", "Serde", "JSON-RPC 2.0"],
-    status: "Working, real local stdio MCP server — the automation backbone for job-lead-discovery",
+    status: "Live demo on Render — real JSON-RPC 2.0 MCP server",
     accentColor: "#3fa796",
+    links: [{ label: "Live Demo", href: "https://agentic-rust-mcp-demo.onrender.com" }],
   },
   {
-    id: "job-lead-discovery",
+    id: "nft-marketplace",
     index: 5,
-    title: "job-lead-discovery",
-    tagline: "Automated YC Jobs board scraper and lead digest",
+    title: "NFT Marketplace",
+    tagline: "Responsive NFT marketplace — Frontend Simplified internship",
     description:
-      "Scrapes the YC Jobs board, parses each listing, filters to US-only roles, and scores leads by keyword match against a target-role persona — then emails a ranked digest.",
+      "A fully responsive marketplace with a Home page (Hot Collections carousel, New Items grid, Top Sellers), an Explore page with sort/filter controls, and an Item Details page with dynamic routing and a live countdown timer.",
     standout:
-      "Scoring is an honest additive keyword-count heuristic, not ML-scored — deliberately simple and legible rather than oversold. The email step calls into agentic-rust-mcp's send_gmail tool, though that cross-repo path is currently stale from a repo reorg and needs a fix to run end-to-end.",
-    tech: ["Python", "asyncio", "crawl4ai"],
-    status: "Scraper/parser/filter pipeline verified against the live YC Jobs page; email integration needs a path fix",
+      "Built as part of Frontend Simplified's virtual internship, simulating a real team dev workflow — component architecture, live API data via Axios, scroll animations, and Git branching/merge-conflict/PR review practices, not just solo scaffolding.",
+    tech: ["React 17", "React Router v6", "Firebase", "Axios", "AOS"],
+    status: "Live on Vercel",
     accentColor: "#e7a33e",
+    links: [{ label: "Live Demo", href: "https://nft-marketplace-starter.vercel.app" }],
   },
 ];
