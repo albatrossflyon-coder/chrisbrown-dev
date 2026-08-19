@@ -6,6 +6,8 @@ Personal developer portfolio: a scroll-driven showcase of 6 real projects, built
 
 **Live**: [chrisbrown-dev.vercel.app](https://chrisbrown-dev.vercel.app)
 
+[![Tests](https://github.com/albatrossflyon-coder/chrisbrown-dev/actions/workflows/test.yml/badge.svg)](https://github.com/albatrossflyon-coder/chrisbrown-dev/actions/workflows/test.yml)
+
 ---
 
 ## The Hero Effect
@@ -28,6 +30,7 @@ The site is a scroll-driven tour through 6 real projects:
 - **Next.js**: app framework
 - **React Three Fiber**: the 3D icosahedron/cube hero effects
 - **GSAP ScrollTrigger**: scroll-driven animation sequencing
+- **Jest + React Testing Library**: component tests, run on every push via GitHub Actions
 - Charcoal / amber / teal palette, Space Grotesk / Inter / IBM Plex Mono typefaces: a distinct visual identity from the Albatross AI brand
 
 ## Development
