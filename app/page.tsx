@@ -1,3 +1,4 @@
+import Navbar from "@/components/sections/Navbar";
 import Hero from "@/components/sections/Hero";
 import ProjectSection from "@/components/sections/ProjectSection";
 import Footer from "@/components/sections/Footer";
@@ -6,6 +7,7 @@ import { projects } from "@/data/projects";
 export default function Home() {
   return (
     <>
+      <Navbar />
       <Hero />
       <div id="projects">
         {projects.map((project) => (

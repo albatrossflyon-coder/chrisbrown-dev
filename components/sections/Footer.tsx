@@ -17,16 +17,18 @@ export default function Footer() {
 
       <div className="flex flex-wrap items-center justify-center gap-3">
         <a
-          href={bio.links.phone}
+          href={bio.links.email}
           className="rounded border border-(--color-signal) px-4 py-2 font-mono text-sm text-(--color-signal) transition-colors hover:bg-(--color-signal) hover:text-(--color-ink)"
         >
-          {bio.phone}
+          Email
         </a>
         <a
-          href={bio.links.email}
+          href={bio.links.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
           className="rounded border border-(--color-circuit) px-4 py-2 font-mono text-sm text-(--color-circuit) transition-colors hover:bg-(--color-circuit) hover:text-(--color-ink)"
         >
-          Email
+          LinkedIn
         </a>
         <a
           href={bio.links.github}
