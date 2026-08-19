@@ -46,18 +46,18 @@ export const projects: Project[] = [
     links: [{ label: "Live Demo", href: "https://frontend-beta-eight-46.vercel.app" }],
   },
   {
-    id: "ai-infrastructure",
+    id: "rag-system",
     index: 3,
-    title: "AI Infrastructure",
-    tagline: "RAG job copilot + a 26-panel live infrastructure dashboard",
+    title: "rag-system",
+    tagline: "A self-evaluating RAG engine — not a chatbot with a search tool bolted on",
     description:
-      "An AI Job-Hunter Copilot (LangGraph agent, hybrid BM25 + TF-IDF retrieval) that ranks leads and drafts cover letters, paired with Omni Dashboard — a live monitor surfacing real-time health across every service in the stack, plus a multi-platform social posting panel.",
+      "Hybrid BM25 + real semantic search, hierarchical + graph-boosted retrieval, and a persistent vector database. Answers questions, ranks live-scraped job leads, and drafts cover letters — all sourced only from a private corpus, with citations, never invented.",
     standout:
-      "Caught and fixed a real retrieval bug live: vague queries like 'rank my top 3 leads' shared no vocabulary with the lead documents, so lexical retrieval missed them — fixed by bypassing similarity search for that intent. Omni Dashboard uses an honest three-state status model (green/orange/red) instead of binary healthy/broken, so free-tier API limits stay visible rather than hidden.",
-    tech: ["Python", "FastAPI", "LangGraph", "Next.js 14", "Tailwind"],
-    status: "Omni Dashboard is live; RAG system verified locally",
+      "Detects when its own sources disagree or have gone stale, learns from queries it initially failed to answer, and asks for clarification instead of guessing when it genuinely doesn't know — a 5-state confidence model instead of a binary right/wrong.",
+    tech: ["Python", "FastAPI", "LangGraph", "Hybrid Retrieval", "Vector DB"],
+    status: "Live API + interactive Swagger docs",
     accentColor: "#e7a33e",
-    links: [{ label: "Live Dashboard", href: "https://omni-console-eight.vercel.app" }],
+    links: [{ label: "Try It Live", href: "https://rag-system-backend.fly.dev/docs" }],
   },
   {
     id: "agentic-rust-mcp",
@@ -86,5 +86,19 @@ export const projects: Project[] = [
     status: "Live on Vercel",
     accentColor: "#e7a33e",
     links: [{ label: "Live Demo", href: "https://nft-marketplace-starter.vercel.app" }],
+  },
+  {
+    id: "summarist",
+    index: 6,
+    title: "Summarist",
+    tagline: "Blinkist-style book summary app — Frontend Simplified internship",
+    description:
+      "A For You page with recommended and suggested books, book detail views with premium locking, an audio player with scrubbing and skip, debounced full-text search, and a library of saved books.",
+    standout:
+      "Real auth (register, login, guest via Firebase) and real Stripe subscription payments — monthly and annual plans with a 7-day free trial, not a mocked checkout flow.",
+    tech: ["Next.js 16", "TypeScript", "Firebase", "Stripe", "Redux Toolkit"],
+    status: "Live on Vercel",
+    accentColor: "#e1573a",
+    links: [{ label: "Live Demo", href: "https://summarist-alpha.vercel.app" }],
   },
 ];

@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import type { Project } from "@/data/projects";
+import { projects, type Project } from "@/data/projects";
 import { useInViewport } from "@/hooks/useInViewport";
 
 const PlaceholderScene = dynamic(() => import("@/components/scenes/PlaceholderScene"), {
@@ -21,7 +21,7 @@ export default function ProjectSection({ project }: { project: Project }) {
     >
       <div className="flex-1">
         <p className="font-mono text-sm tracking-widest text-(--color-signal)">
-          {String(project.index).padStart(2, "0")} / 05
+          {String(project.index).padStart(2, "0")} / {String(projects.length).padStart(2, "0")}
         </p>
         <h2 className="mt-4 font-display text-3xl font-bold text-(--color-paper) sm:text-4xl">
           {project.title}
