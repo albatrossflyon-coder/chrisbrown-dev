@@ -21,9 +21,9 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Chris Brown — Junior Frontend Developer",
+  title: "Chris Brown | Junior Frontend Developer",
   description:
-    "Portfolio of Chris Brown, a Junior Frontend Developer building production web apps with React, Next.js, and TypeScript — plus hands-on AI and automation engineering depth.",
+    "Portfolio of Chris Brown, a Junior Frontend Developer building production web apps with React, Next.js, and TypeScript, plus hands-on AI and automation engineering depth.",
 };
 
 export default function RootLayout({
