@@ -2,6 +2,12 @@
 
 A session-by-session record of how this portfolio was built.
 
+## Tech Stack
+
+- **Languages**: TypeScript
+- **Frameworks/Libraries**: Next.js, React Three Fiber, GSAP (ScrollTrigger), Tailwind CSS
+- **Cloud/Hosting**: Vercel
+
 ---
 
 ## Session 1 — 2026-07-06 (Milestone 1: Scaffold + deploy skeleton)
